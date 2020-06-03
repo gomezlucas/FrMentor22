@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+  --paleBlue: hsl(243, 100%, 93%);
+  --grayishBlue: hsl(229, 7%, 55%);
+  --darkBlue: hsl(228, 56%, 26%);
+  --veryDarkBlue: hsl(229, 57%, 11%);
+  --width: 10;
+}
+
+body {
+  background-color: var(--veryDarkBlue);
+  font-family: "Raleway", sans-serif;
+  min-height: 100vh;
+}
+
+header {
+  width: 100%;
+  height: 600px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./images/bg-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: 0 124%;
+  background-size: contain;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+.header__logo {
+  background-color: var(--darkBlue);
+  padding: 2.5rem 6rem 2.5rem 2rem;
+  text-align: left;
+  border-top-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  border-top-right-radius: 85px;
+  box-shadow: var(--veryDarkBlue) 1px 3px 12px 0px;
+  min-width: 350px;
+}
+
+.header__logo > img {
+  width: 7rem;
+}
+
+.header__logo > ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.header__logo > ul > li {
+  background-color: var(--veryDarkBlue);
+  height: 40px;
+  width: 40px;
+  border-radius: 9px;
+  margin-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.header__logo > ul > li:hover {
+  opacity: 0.7;
+}
+
+.header__logo li > img {
+  transform: scale(0.8);
+}
+
+.header__bar {
+  align-self: flex-end;
+  flex: 1;
+  padding: 2rem 2rem;
+  background-color: var(--darkBlue);
+  margin-left: 2rem;
+  border-radius: 9px;
+  position: relative;
+  box-shadow: var(--veryDarkBlue) 1px 3px 12px 0px;
+  transition: all 0.3s ease-in-out;
+  min-width: 350px;
+}
+
+.header__bar > p {
+  color: var(--paleBlue);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #0c122c75;
+  border-radius: 17px;
+  position: relative;
+}
+
+.progress-bar::after {
+  content: "";
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  min-width: 1rem;
+  max-width: calc(100% - 23px);
+  background-image: var(--gradient);
+  border-radius: 17px;
+  padding: 7px;
+  width: calc(var(--width, 0) * 0.94%);
+  z-index: 0;
+}
+
+.progress-bar::before {
+  content: "";
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: calc(var(--width, 0) * 0.94%);
+  top: 5px;
+  border-radius: 17px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  z-index: 1;
+  max-width: calc(100% - 23px);
+}
+
+.header__leyends {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+.header__bubbleContainer {
+  position: absolute;
+  top: -2.7rem;
+  right: 2rem;
+}
+
+.bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 0.5rem;
+  position: relative;
+  border-radius: 8px 8px 8px 8px;
+  width: 11rem;
+}
+
+.bubble:after {
+  content: "";
+  position: absolute;
+  top: 89%;
+  right: 0px;
+  border-top: 31px solid red;
+  border-top-color: inherit;
+  border-left: 29px solid transparent;
+  color: white;
+}
+
+.bubble__number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--veryDarkBlue);
+}
+
+.bubble__text {
+  margin-left: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--grayishBlue);
+}
+
+@media screen and (max-width: 1000px) {
+  header {
+    background-image: url("./images/bg-mobile.svg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header__logo {
+    width: 100%;
+  }
+
+  .header__bar {
+    align-self: center;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 1.5rem;
+  }
+
+  .header__bubbleContainer {
+    position: absolute;
+    top: initial;
+    left: 0;
+    right: 0;
+    bottom: -36px;
+  }
+
+  .bubble {
+    margin: auto;
+  }
+
+  .bubble:after {
+    border-top: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    width: 90%;
+  }
+}
